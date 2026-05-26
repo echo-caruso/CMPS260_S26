@@ -1,0 +1,19 @@
+What does pwd do?
+  - shows the path for the directory
+What does whoami do?
+  - tells you who is logged in. 
+Explain why the two commands in Step 1 behaves differently.
+  - ";" makes it look for a file or directory
+  - ; just gives you the date 
+Explain what happens on Step 6.
+  - made a folder heiracrhy and recorded the steps
+Explain what happened from Step 17-21.
+  - demonstrate how the umask affects the default permissions assigned to new files.
+Explain what happened in Step 23-24
+  - establishes the links
+  - hard links are independent of the original filename
+  - symbolic links are dependent on the original file remaining at its specified path.
+Explain what happened from Step 29-30
+  - demonstrate how to detect discrepancies between files. 
+  - diff provides a human-readable summary of what is different
+  - cmp is more efficient for pinpointing where the first difference occurs in the file's data
