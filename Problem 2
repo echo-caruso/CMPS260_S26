@@ -1,0 +1,187 @@
+• What is a process? 
+    -
+• What is the difference between a program and a process? 
+    - 
+• What does the ps command show? 
+    - 
+• What do the columns PID, TTY, TIME, and CMD mean? 
+    - 
+• What additional information does ps -f show?
+    - 
+• What does the & symbol do at the end of a command? 
+    - 
+• What does $! store? 
+    - 
+• Why is the process ID important? 
+    - 
+• What did pgrep -a sleep show?
+    - 
+• What does the wait command do?
+    - 
+• What does exit status 0 usually mean? 
+    - 
+• What does a non-zero exit status usually mean?
+    - 
+• Why would someone run multiple processes in the background? 
+    - 
+• Why is wait useful when working with background jobs? 
+    - 
+• What order did the jobs finish in?
+    - 
+• What is a signal? 
+    - 
+• What is the purpose of the kill command? 
+    - 
+• What is the difference between sending a signal and deleting a file? 
+    - 
+• What are SIGTERM, SIGKILL, and SIGINT commonly used for?
+    - 
+• What happened after you sent SIGTERM? 
+    - 
+• What happened after you sent SIGKILL?
+    - 
+• Why is SIGKILL stronger than SIGTERM? 
+    - 
+• Why should you usually try SIGTERM before SIGKILL?
+    - 
+• What does ps -C sleep do? 
+    - 
+• What does pgrep do? 
+    - 
+• Why might pgrep be easier than manually searching through all processes?
+    - 
+• What does top show that ps does not show as clearly? 
+    - 
+• What do %CPU and %MEM mean? 
+    - 
+• Why is top useful for system monitoring?
+    - 
+• What does the nice command do? 
+    - 
+• What does the renice command do?
+    - 
+• What does the NI column represent?
+    - 
+• Does a higher nice value mean higher priority or lower priority?
+    - 
+• What is an environment variable? 
+    - 
+• What does $HOME store? 
+    - 
+• What does $USER store? 
+    - 
+• What does $SHELL store? 
+    - 
+• What does $PATH store?
+    - 
+• What is the difference between a local shell variable and an environment variable?
+    -
+• What does export do? 
+    - 
+• Which variable was visible inside the child shell? 
+    - 
+• Which variable was not visible inside the child shell?
+    - 
+• Why did ./scripts/hello_path.sh work?
+    - 
+• Why did hello_path.sh only work after changing PATH?
+    - 
+• Why is PATH important when running commands?
+    - 
+• What is setuid? 
+    - 
+• What is setgid? 
+    - 
+• What is the sticky bit? 
+    - 
+• Where did you see the sticky bit in the output? 
+    - 
+• Why is the sticky bit commonly used on /tmp?
+    - 
+• What does sort do by default? 
+    - 
+• What does sort -r do? 
+    - 
+• What does sort -u do?
+    - 
+• Why did we use tail -n +2 when sorting the scores file? 
+    - 
+• Did sort change the original file?
+    - 
+• What does grep do? 
+    - 
+• What does grep -i do?
+    - 
+• What does grep -n do? 
+    - 
+• What does grep -v do? 
+    - 
+• What does grep -c do?
+    - 
+• What does grep -R do?
+    - 
+• What does awk do? 
+    - 
+• What does -F '\t' mean? 
+    - 
+• What does $1 mean in awk? 
+    - 
+• What does $0 mean in awk? 
+    - 
+• What does NR mean? 
+    - 
+• What does NF mean? 
+    - 
+• How did the average-score command work?
+    - 
+• What does head show by default? 
+• What does tail show by default? 
+• What does head -n 5 do? 
+• What does tail -n 5 do? 
+• What does tail -n +3 do? 
+• How did the command using both head and tail print only lines 4 through 8?
+• What is the file approach? 
+• What is the pipe approach? 
+• Which approach avoids creating a temporary file? 
+• Why are pipes useful in Linux?
+• What does tee do? 
+• How is tee different from regular output redirection using >? 
+• What does tee -a do?
+• What does cut do? 
+• What does cut -f1 do? 
+• What does cut -f1,3 do? 
+• What does cut -c1-10 do? 
+• What does -d' ' mean?
+• What does paste do? 
+• What delimiter does paste use by default? 
+• What does paste -d ',' do? 
+• What does paste -s do?
+• What does uniq do? 
+• Why did we sort the file before using uniq? 
+• What does uniq -c show? 
+• What does uniq -d show? 
+• What does uniq -u show? 
+• Why are duplicate lines easier to remove after sorting?
+• What does wc show by default? 
+• What does wc -l count? 
+• What does wc -w count? 
+• What does wc -c count? 
+• Why is wc useful in pipelines?
+• What did the grep part of the pipeline do? 
+• What did the cut part of the pipeline do? 
+• What did the sort part of the pipeline do? 
+• What did the uniq -c part of the pipeline do? 
+• What did the tee part of the pipeline do? 
+• Why is this an example of using small Linux tools together?
+• What did both commands do? 
+• Which command uses an extra cat process? 
+• Why is wc -l < file usually more direct than cat file | wc -l? 
+• Why do people still sometimes use cat file | command when building pipelines?
+• What does the script do? 
+• Why did we use variables named input and output? 
+• Why did we make the script executable with chmod +x? 
+• Why is a script useful when you want to repeat the same pipeline later?
+
+
+
+
