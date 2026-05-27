@@ -1,0 +1,10 @@
+dog
+Cat
+cat
+zebra
+ant
+dog
+bird
+Ant
+cat
+dog

@@ -1,0 +1,390 @@
+    1  mkdir -p~/cmps260/linux_assignments/{data,outputs,scripts}
+    2  cd ~/cmps260/linux_assignments 
+    3  mkdir --help
+    4  mkdir -p ~/cmps260/linux_assignments/{data,outputs,scripts}
+    5  cd ~/cmps260/linux_assignments
+    6  pwd
+    7  whoami
+    8  command > problem0_command.txt
+    9  ls ; date
+   10  ls ";" date
+   11  man -f ls
+   12  man -k shell
+   13  man 1 ls
+   14  {man -f ls; man -k shell; man 1 ls | head -n 30;}>>outputs/problem1.txt
+   15  
+   16  {man -f ls; man -k shell; man 1 ls | head -n 30: } >> outputs/problem1.txt
+   17  data/projects/raw
+   18  mkdir linux_assignments data/projects/raw
+   19  mkdir -p linux_assignments/data/projects/raw linux_assignments/data/projects/processed linux_assignments/data/archive
+   20  mkdir -p data/projects/{raw,processed} data/{notes,archieve}
+   21  ls -R data >> outputs/problem1_lecture2.txt
+   22  cat > data/notes/notes1.txt
+   23  cat >> data/notes/notes1.txt >> outs/problem1_lecture2.txt
+   24  cat >> data/notes/notes1.txt >>outputs/problem1_lecture2.txt
+   25  cat -s data/notes/notes1.txt >> outputs/problem1_lecture2.txt
+   26  cat -E data/notes/notes1.txt >> outputs/problem1_lecture2.txt
+   27  cat -A data/notes/notes1.txt >> outputs/problem1_lecture2.txt
+   28  tac data/notes/notes1.txt >> outputs/problem1_lecture2.txt
+   29  cat > "-dashfile.txt"
+   30  cat -- "-dashfile.txt"
+   31  ls -l
+   32  ls -lh
+   33  ls -ld data
+   34  ls -ltr
+   35  ls -A
+   36  ls -R data
+   37  outputs/problem1_lecture2.txt
+   38  cat outputs/problem1_lecture2.txt >> outputs/problem1.txt
+   39  echo "permission demo" > data/notes/perms.txt
+   40  ls -l data/notes/perms.txt >> outputs/problem1_lecture2.txt
+   41  chmod
+   42  chmod --help
+   43  chmod 640  
+   44  chmod 640 outputs/problem1_lecture2.txt
+   45  ls -l data/notes/perms.txt >> outputs/problem1_lecture2.txt
+   46  umask
+   47  touch data/u_before.txt
+   48  umask 077
+   49  touch data/u_after.txt
+   50  ls -l
+   51  echo "link target" > data/link_target.txt
+   52  ln data/link_target.txt data/hardlink.txt
+   53  ln -s data/link_target.txt data/symlink.txt
+   54  ls -l data/link_target.txt data/hardlink.txt data/symlink.txt >> outputs/problem1_lecture2.txt
+   55  rm data/link_target.txt
+   56  ls -l data/hardlink.txt data/symlink.txt >> outputs/problem1_lecture2.txt
+   57  find data -name "*.txt"
+   58  find data -size +0
+   59  find data -type f -exec wc -w {} \;
+   60  printf "apples\noranges\nwalnuts\n" > data/a.txt
+   61  printf "apples\noranges\nwalnuts\n" > data/b.txt
+   62  diff data/a.txt data/b.txt
+   63  cmp data/a.txt data/b.txt
+   64  history > outputs/problem1_commands.txt
+   65  cd ~/cmps260/linux_assignment
+   66  cd ~/cmps260/linux_assignments
+   67  pwd
+   68  echo "Problem 2: Processes and Filters" > outputs/problem2.txt
+   69  date >> outputs/problem2.txt
+   70  pwd >> outputs/problem2.txt
+   71  whoami >> outputs/problem2.txt
+   72  mkdir -p data/processes_filters/raw
+   73  mkdir -p data/processes_filters/processed
+   74  mkdir -p scripts
+   75  echo "=== Problem 2 Folder Structure ===" >> outputs/problem2.txt
+   76  ls -R data/processes_filters >> outputs/problem2.txt
+   77  echo "=== Basic ps Output ===" >> outputs/problem2.txt
+   78  ps >> outputs/problem2.txt
+   79  echo "=== Full ps Output for Current Shell ===" >> outputs/problem2.txt
+   80  ps -f >> outputs/problem2.txt
+   81  echo "=== First 20 Processes From ps -e ===" >> outputs/problem2.txt
+   82  ps -e | head -n 20 >> outputs/problem2.txt
+   83  +
+   84  echo "=== Foregroud sleep Demo ===" >> outputs/problem2.txt
+   85  echo "Before foreground sleep:" >> outputs/problem2.txt
+   86  dat >> outputs/problem2.txt
+   87  date >> outputs/problem2.txt
+   88  sleep 2
+   89  echo "After foreground sleep:" >> outputs/problem2.txt
+   90  date >> outputs/problem2.txt
+   91  echo "=== Background sleep Demo ===" >> outputs/problem2.txt
+   92  sleep 30 &
+   93  BG_PID=$!
+   94  echo "Background process PID: $BG_PID" >> outputs/problem2.txt
+   95  ps -p "$BG_PID" -f >> outputs/problem2.txt
+   96  echo "=== Checking Background Process With pgrep ===" >>> outputs/problem2.txt
+   97  echo "=== Checking Background Process With pgrep ===" >> outputs/problem2.txt
+   98  pgrep -a sleep >> outputs/problem2.txt
+   99  echo "===wait Command Demo===" >> outputs/problem2.txt
+  100  sleep 3 & WAIT_PID=$!
+  101  echo "Waiting for PID:$WAIT_PID" .. outputs/problem2.txt
+  102  wait "$WAIT_PID"
+  103  echo "Exit status after wait: $?" .. outputs/problem2.txt
+  104  echo "=== Multiple Background Processes Demo ===" >> outputs/problem2.txt
+  105  (sleep 1; echo "First background job finished" >> outputs/problem2_wait_jobs.txt) & PID1=$!
+  106  (sleep 2; echo "Second background job finished" >> outputs/problem2_wait_jobs.txt) & PID2=$!
+  107  (sleep 3; echo "Third background job finished" >> outputs/problem2_wait_jobs.txt) & PID3=$!
+  108  echo "Started PIDs: $PID1 $PID2 $PID3" >> outputs/problem2.txt
+  109  wait "$PID1"
+  110  echo "PID $PID1 finished with exit status: $?" >> outputs/problem2.txt
+  111  echo "PID $PID2 finished with exit status: $?" >> outputs/problem2.txt
+  112  echo "PID $PID3 finished with exit status: $?" >> outputs/problem2.txt
+  113  echo "=== Contents of problem2_wait_jobs.txt ===" >> outputs/problem.txt
+  114  cat outputs/problem2_wait_jobs.txt >> outputs/problem2.txt
+  115  echo "=== First 30 Signals From kill -| ===" >> outputs/problem2.txt
+  116  kill -| head -n 30 >> outputs/problem2.txt
+  117  echo "===kill Command Demo With SIGTERM ===" >> outputs/problem2.txt
+  118  sleep 60 & TERM_PID=$!
+  119  echo "Started sleep process with PID: $TERM_PID" >> outputs/problem2.txt
+  120  ps -p "$TERM_PID" -f >> outputs/problem2.txt
+  121  kill -TERM "$TERM_PID"
+  122  kill -TERM "$TERM_PID" wait "$TERM_PID" 2>/dev/null
+  123  echo "Exit status after SIGTERM: $" >> outputs/problem2.txt
+  124  echo "=== kill Command Demo With SIGKILL ===" >> outputs/problem2.txt
+  125  sleep 60 & KILL_PID=$!
+  126  echo "Started sleep process with PID: $KILL_PID" >> outputs/problem2.txt
+  127  ps -p "$KILL_PID" -f >> outputs/problem2.txt
+  128  kill -KILL "$KILL_PID"
+  129  kill -KILL "$KILL_PID" wait "$KILL_PID" 2>/dev/null
+  130  echo "Exit status after SIGKILL: $?" >> outputs/problem2.txt
+  131  echo "===Process Selection by Command Name ===" >> outputs/problem2.txt
+  132  sleep 45 & SELECT_PID=$!
+  133  echo "Started sleep process with PID: $SELECT_PID
+echo "Started sleep process with PID: $SELECT_PID" >> outputs/problem2.txt
+echo "Output of ps -C sleep:" >> outputs/problem2.txt
+ps -C sleep -o pid, ppid,stat,cmd >> outputs/problem2.txt
+echo "Output of ps -C sleep:" >> outputs/problem2.txt
+pgrep -a sleep >> outputs/problem2.txt
+kill "$SELECT_PID
+  134  kill "$SLECET_PID"
+  135  kill"$SLECET_PID"
+  136  wait "$SELECT_PID" 2>/dev/null
+  137  echo "=== top Command Snapshot ===" >> outputs/problem2.txt
+  138  top -b -n 1 | head -n 20 >> outputs/problem2.txt
+  139  echo "=== nice and renice Demo ===" >> outputs/problem2.txt
+  140  nice -n 10 sleep 60 & NICE_PID=$!
+  141  echo "Started nice process with PID:$NICE_PID" >> outputs/problem2.txt
+  142  echo "Before renice:" >> outputs/problem2.txt
+  143  ps -o pid,ni,pri,stat.cmd -p "$NICE_PID" >> outputs/problem2.txt
+  144  ps -o pid,ni,pri,stat,cmd -p "$NICE_PID" >> outputs/problem2.txt
+  145  renice -n 15 -p "NICE_PID" >> outputs/problem2.txt 2>&1
+  146  echo "After renice:" >> outputs/problem2.txt
+  147  ps -o pid,ni,pri,stat,cmd -p "$NICE_PID" >> outputs/problem2.txt
+  148  kill "$NICE_PID"
+  149  kill "$NICE_PID" wait "$NICE_PID" 2>/dev/null
+  150  echo "=== Enviornment Varibles Demo ===" >> outputs/problem2.txt
+  151  echo "HOME=$HOME" >> outputs/problem2.txt
+  152  echo "USER=$USER" >> outputs.problem2.txt
+  153  echo "SHELL=$SHELL" >> outputs/problem2.txt
+  154  echo "PATH+$PATH" >> outputs/problem2.txt
+  155  echo "=== printenv HOME ===" >> outputs/problem2.txt
+  156  printenv HOME >> outputs/problem2.txt
+  157  echo "=== First 20 Lines of env ===" >> outputs/problem2.txt
+  158  env | head -n 20 >> outputs/problem2.txt
+  159  echo "=== Local Variable vx Enviorment Variable Demo ===" >>
+  160  echo "=== Local Variable vx Enviorment Variable Demo ===" >> outputs/problem2.txt
+  161  LOCAL_DEMO="This is only Local"
+  162  export EXPORTED_DEMO="This is exported"
+  163  bash -c 'echo "Inside Child shell:"; echo "LOCAL_DEMO+$LOCAL_DEMO"; echo "EEXPORTED_DEMO=$EXPORTED_DEMO"' >> outputs/problem2.txt
+  164  unset EXPORTED_DEMO
+  165  cat > scripts/hello_path.sh <<'EOF'
+#!/bin/bash
+echo "Hello from a script found through PATH
+EOF
+
+  166  chmod +x scripts/hello_path.sh
+  167  echo "=== Running Script With Relative Path ===" >> outputs/problem2.txt./scripts/hello_path.sh >> outputs/problem2.txt
+  168  OLD_PATH="$PATH"
+  169  PATH="$PATH:$PWD/scripts"
+  170  echo "=== Running Script Through PATH ===" >> outputs/problem2.txt
+  171  hell_path.sh >> outputs/problem2.txt
+  172  hello_path.sh >> outputs/problem2.txt
+  173  echo "=== Running Script Through PATH ===" >> outputs/problem2.txt hello_path.sh >> outputs/problem2.txt
+  174  PATH="$OLD_PATH"
+  175  echo "=== Special Permission Bits Demo ===" >> outputs/problem2.txt
+  176  echo "Checking passwd >> outputs/problem2.txt 2>/dev/null || ls -l /bin/passwd >> outputs/problem2.txt 2>/dev/null
+echo "Checking /tmp directory:" >>outputs/problem2.txt
+ls -ld /tmp >> outputs/problem2.txt
+
+  177  mkdir -p data/processes_filters/sticky_demo
+  178  chmod 1777 data/processess_filters/sticky_demo
+  179  chmod 1777 data/processes_filters/sticky_demo
+  180  echo "Checking local sticky demo directory:" >> outputs/problem2.txt
+  181  ls -ld data/processes_filters/sticky_demo >> outputs/problem2.txt
+  182  cat > data/processes_filters/raw/animals.txt <<'EOF"
+dog
+Cat
+cat
+zebra
+ant
+dog
+bird
+Ant
+cat
+dog
+EOF
+
+  183  printf "name\tgroup\tscore\nAna\tA\t90\nBen\tB\t75\nCara\tA\t88\nDiego\tB\t92\nElena\tA\t75\nFrank\tB\t84\n" > data/processes_filters/raw/scores.tsv
+  184  cat > data/processes_filters/raw/server.log <<'EOF'
+2026-01-01 08:00:00 INFO Service started
+2026-01-01 08:01:00 INFO Loading configuration
+2026-01-01 08:02:00 WARNING Disk space low
+2026-01-01 08:03:00 ERROR Failed login attempt
+2026-01-01 08:04:00 INFO User session opened
+2026-01-01 08:05:00 ERROR Database connection failed
+2026-01-01 08:06:00 WARNING Retrying database connection
+2026-01-01 08:07:00 INFO Database connection restored
+2026-01-01 08:08:00 ERROR Failed login attempt
+2026-01-01 08:09:00 INFO Service stopped
+EOF
+
+  185  cat > data/processes_filters/raw/states.txt <<'EOF'
+California
+Texas
+New York
+Arizona
+Nevada
+EOF
+
+  186  cat > data/processes_filters/raw/animals.txt <<'EOF'
+dog
+Cat
+cat
+zebra
+ant
+dog
+bird
+Ant
+cat
+dog
+EOF
+
+  187  cat > data/processes_filters/raw/captials.txt <<'EOF'
+Sacramento
+Autisn
+Albany
+Phoenix
+Carson City
+EOF
+
+  188  cat > data/processes_filters/raw/populations.txt <<'EOF'
+39
+30
+20
+7
+3
+EOF
+
+  189  echo "=== Raw Data Files Created ===" >> outputs/problem2.txt
+  190  ls -l data/processes_filters/raw >> outputs/problem2.txt
+  191  echo "=== sort animals.txt Default ===" >> outputs/problem2.txt
+  192  sort data/processes_filters/raw/animals.txt >> outputs/problem2.txt
+  193  echo "=== sort animals.txt Reverse ===" >> outputs/problem2.txt
+  194  sort -r data/processes_filters/raw/animals.txt >> outputs/problem2.txt
+  195  echo "=== sort animals.txt Unique ===" >> outputs/problem2.txt
+  196  sort -u data/processes_filters/raw/animals.txt >> outputs/problem2.txt
+  197  echo "=== sort scores.tsv by Score ===" >> outputs/problem2.txt
+  198  { head -n 1 data/processes_filters/raw/scores.tsv; tail -n +2 data/processes_filters/raw/scores.tsv | sort -k3,3n; } >> outputs/problem2.txt
+  199  { head -n 1 data/processes_filters/raw/scores.tsv; { head -n 1 data/processes/filters/raw/scores.tsv; 
+  200  { head -n 1 data/process_filters/raw/scores.tsv; tail -n +2 data/processes_filters/raw/scores.tsv | sort -k3,3n; } >> outputs/problem2.txt
+  201  { head -n 1 data/processeses_filters/raw/scores.tsv; tail -n +2 data/processes_filters/raw/scores.tsv | sort -k3,3n; } >> outputs/problem2.txt
+  202  { head -n 1 data/processes_filters/raw/scores.tsv; tail -n +2 data/processes_filters/raw/scores.tsv | sort -k3,3n; } >> outputs/problem2.txt
+  203  echo "=== grep ERROR ===" >> outputs/problem2.txt
+  204  grep "ERROR"data/processes_filters/raw/server.log >> outputs/problem2.txt
+  205  echo "=== awk Print Entire File ===" >> outputs/problem2.txt
+  206  awk '{print}' data/processes_filters/raw/scores.tsv >> outputs/problem2.txt
+  207  echo "=== awk Print Name and Score ===" >> outputs/problem2.txt
+  208  awk -F '\t' '{print $1, $3}' data/processes_filters/raw/scores.tsv >> outputs/problem2.txt
+  209  echo "=== awk Print Line Number, Field Count, and Line ===" >> outputs/problem2.txt
+  210  awk -F '\t' '{print NR, NF, $0}' data/processes_filters/raw/scores.tsv >> outputs/problem2.txt
+  211  echo "=== awk Scores Greater Than or Equal to 85 ===" >> outputs/problem2.txt
+  212  awk -F '\t' 'NR > 1 && $3 >= 85 {print $1, $2, $3}' data/processes_filters/raw/scores.tsv >> outputs/problems2.txt
+  213  echo "=== awk Average Score ===" >> outputs/problem2.txt
+  214  awk -F '\t' 'NR > 1 {sum += $3; count++} END {print "Average score:", sum / count}' data/processes_filters/raw/scores.tsv >> outputs/problem2.txt
+  215  echo "=== head Default ===" >> outputs/problem2.txt
+  216  head data/processes_filters/raw/server.log >> outputs/problem2.txt
+  217  echo "=== head -n 5 ===" >> outputs/problem2.txt
+  218  head -n 5 data/processes/raw/server.log >> outputs/problem2.txt
+  219  head -n 5 data/processes_filters/raw/server.log >> outputs/problem2.txt
+  220  echo "=== tail Default ===" >> outputs/problem2.txt
+  221  tail data/processes_filters/raw/server.log >> outputs/problem2.txt
+  222  echo "=== tail -n 5 ===" >> outputs/problem2.txt
+  223  tail -n 5 data/processes_filters/raw/server.log >> outputs/problem2.txt
+  224  echo "=== tail -n +3 ===" >> outputs/problem2.txt
+  225  tail -n +3 data/processes_filters/raw/server.log >> outputs/problem2.txt
+  226  echo "=== Lines 4 Through 8 Using head and tail ===" >> outputs/problem2.txt
+  227  head -n 8 data/processes_filters/raw/server.log | tail -n 5 >> outputs/problem2.txt
+  228  echo "=== File Approach ===" >> outputs/problem2.txt
+  229  grep "ERROR" data/processes_filters/raw/server.log > data/processes_fi;ters/processed/errrors.tmp
+  230  grep "ERROR" data/processes_filters/raw/server.log > data/processes_filters/processed/errrors.tmp
+  231  wc -l data/processes_filters/processed/errors.tmp >> outputs/problem2.txt
+  232  cat data/processes_fi;ters/processed/errors.tmp >> outputs/problem2.txt
+  233  cat data/processes_filters/processed/errors.tmp >> outputs/problem2.txt
+  234  rm data/processes_filters/processed/errors.tmp
+  235  echo "=== Pipe Approach ===" >> outputs/problem2.txt
+  236  grep "ERROR" data/processes_filters/raw/server.log | wc -| >> outputs/problem2.txt
+  237  echo "=== tee Demo ===" >> outputs.problem2.txt
+  238  grep -i "service" data/processes_filters/processed/service_lines.txt >> output/problem2.txt
+  239  grep -i "service" data/processes_filters/processed/service_lines.txt >> outputs/problem2.txt
+  240  echo "=== Contents Saved by tee ===" >> outputs/problem2.txt
+  241  cat data/processes_filters/processed/service_lines.txt >> outputs/problem2.txt
+  242  echo "=== cut First Field FOrm scores.tsv ===" >> outputs/problem2.txt
+  243  cut -f1 data/processes_filters/raw/scores.tsv >> outputs/problem2.txt
+  244  echo "=== cut Name and Score from scores.tsv ===" >> outputs/problem2.txt
+  245  cut -f1,3 data/processes_filters/raw/scores.tsv >> outputs/problem2.txt
+  246  echo "=== cut First 10 characters from scores.tsv ===" >> outputs/problem2.txt
+  247  cut -c1-10 data/processes_filters/raw/server.log >> outputs/problem2.txt
+  248  echo "=== cut Date and Log Level From server.log ===" >> outputs/problem2.txt
+  249  cut -d' ' -f1,3 data/processes_filters/raw/server.log >> outputs/problem2.txt
+  250  echo "=== paste With Default Tab Delimiter ===">> outputs/problem2.txt
+  251  paste data/processes_fi;ters/raw/states.txt
+  252  paste data/processes_filters/raw/states.txt
+  253  echo "=== paste With comma delimiter ===">> outputs/problem2.txt
+  254  paste-d data/processes_filters/raw/states.txt
+  255  paste -d data/processes_filters/raw/states.txt
+  256  paste -d ',' data/processes_filters/raw/states.txt
+  257  data/processes_filters/raw/capitals
+  258  data/processes_filters/raw/capitals data/processes_filters/raw/populations.txt >> outputs/problem2.txt
+  259  data/processes_filters/raw/capitals.txt data/processes_filters/raw/populations.txt >> outputs/problem2.txt
+  260  paste data/processes_filters/raw/states.txt
+  261  data/processes_filters/raw/capitals
+  262  data/processes_filters/raw/populations.txt > data/processes_filters/processed/state_capitals_population.tsv
+  263  echo "=== paste -s States Into One Line ===" >> outputs/problem2.txt
+  264  paste -s -d ',' data/processes_filters/raw/states.txt >> outputs/problem2.txt
+  265  echo "=== uniq Demo Requires Sorted Input ===" >> outputs/problem2.txt
+  266  sort data/processes_filters/raw/animals/txt > data processes_filters/processed/animals_sorted.txt
+  267  sort data/processes_filters/raw/animals/txt > data/processes_filters/processed/animals_sorted.txt
+  268  sort data/processes_filters/raw/animals.txt > data/processes_filters/processed/animals_sorted.txt
+  269  echo "=== Sorted animals.txt ===" >> outputs/problem2.txt
+  270  cat data/processes_filters/processed/animals_sorted.txt >> outputs/problem2.txt
+  271  echo "=== uniq animals_sorted.txt ===" >> outputs/problem2.txt
+  272  uniq data/processes_filters/processed/animals_sorted.txt >> outputs/problem2.txt
+  273  echo "=== uniq -c animals_sorted.txt ===" >> outputs/problem2.txt
+  274  uniq -c data/processes_filters/processed/animals_sorted.txt >> outputs/problem2.txt
+  275  echo "=== uniq -d animals_sorted.txt ===" >> outputs/problem2.txt
+  276  uniq -d data/processes_filters/processed/animals_sorted.txt >> outputs/problem2.txt
+  277  echo "=== uniq -u animals_sorted.txt ===" >> outputs/problem2.txt
+  278  uniq -u data/processes_filters/processed/animals_sorted.txt >> outputs/problem2.txt
+  279  echo "=== Case-Insensitive sort and uniq ===" >> outputs/problem2.txt
+  280  sort -f data/processes_filters/raw/animals.txt | uniq -q >> outputs/problem2.txt
+  281  sort -f data/processes_filters/raw/animals.txt | uniq -i >> outputs/problem2.txt
+  282  echo "=== wc Demo ===" >> outputs/problem2.txt
+  283  wc data/processes_filters/raw/server.log >> outputs/problem2.txt
+  284  echo "=== wc -l ===" >> outputs/problem2.txt
+  285  wc -1 data/processes_filters/raw/server.log >> outputs/problem2.txt
+  286  wc -l data/processes_filters/raw/server.log >> outputs/problem2.txt
+  287  echo "=== wc -w ===" >> outputs/problem2.txt
+  288  wc -w data/processes_filters/raw/server.log >> outputs/problem2.txt
+  289  echo "=== wc -c ===" >> outputs/problem2.txt
+  290  wc -c data/processes_filters/raw/server.log >> outputs/problem2.txt
+  291  echo "=== wc -l Through a Pipe ===" >> outputs/problem2.txt
+  292  cat data/processes_filters/raw/server.log | wc -l >> outputs/problem2.txt
+  293  echo "=== Long Pipeline: ERROR and WARNING Summary ===" >> outputs/problem2.txt
+  294  grep -e "ERROR" -e "WARNING" data/processes_filters/raw/server.log | cut -d'' -f1,2,3 | sort | uniq -c | tee data/processes_filters/processed/error_warning_summary.txt >> outputs/problem2.txt
+  295  echo "=== cat file | command ===" >> outputs/problem2.txt
+  296  cat data/processes_filters/raw/server.log >> outputs/problem2.txt
+  297  echo "=== command < file ===" >> outputs/problem2.txt
+  298  wc -l < data/processes_filters/raw/server.log >> outputs/problem2.txt
+  299  cat > scripts/problem2_pipeline.sh <<'EOF'
+#!/bin/bash
+input="data/processes_filters/raw/server.log
+output="data/processes_filters/processed/error_warning_summary_from)script.txt"
+grep -e "ERROR" -e "WARNING" "$input"\
+| cut -d'' -f1,2,3\
+| sort\
+| uniw -c\
+| tee "$output"
+EOF
+
+  300  chmod +x scripts/problem2_pipeline.sh
+  301  echo "=== Running problem2_pipline.sh ===" >> outputs/problem2.txt./scripts/problem2_pipeline.sh >> outputs/problem2.txt
+  302  echo "=== Script Output File ===" >> outputs/problem2.txt
+  303  cat data/processes_filters/processed/error_warning_summary_from_script.txt >> outputs/problem2.txt
+  304  echo "=== NOTHING IS WORKING I HATE LINUX I SHOULD BE STUDYING FOR CYBERSECURITY RIGHT NOW BUT IVE BEEN IN THIS LAB FOR SIX HOURS ===" >> outpits/problem2.txt
+  305  echo "=== NOTHING IS WORKING I HATE LINUX I SHOULD BE STUDYING FOR CYBERSECURITY RIGHT NOW BUT IVE BEEN IN THIS LAB FOR SIX HOURS ===" >> outputs/problem2.txt
+  306  echo "=== ALl Problem 2 Files created ===" >> outputs/problem2.txt
+  307  find data/processes_filters -type f | sort >> outputs/problem2.txt
+  308  echo "Problem 2 scripts ===" >> outputs/problem2.txt
+  309  find scripts -maxdepth 1 -type f | sort >> outputs/problem2.txt
+  310  history > outputs/problem2_commands.txt

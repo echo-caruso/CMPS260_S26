@@ -1,0 +1,64 @@
+    1  mkdir -p~/cmps260/linux_assignments/{data,outputs,scripts}
+    2  cd ~/cmps260/linux_assignments 
+    3  mkdir --help
+    4  mkdir -p ~/cmps260/linux_assignments/{data,outputs,scripts}
+    5  cd ~/cmps260/linux_assignments
+    6  pwd
+    7  whoami
+    8  command > problem0_command.txt
+    9  ls ; date
+   10  ls ";" date
+   11  man -f ls
+   12  man -k shell
+   13  man 1 ls
+   14  {man -f ls; man -k shell; man 1 ls | head -n 30;}>>outputs/problem1.txt
+   15  
+   16  {man -f ls; man -k shell; man 1 ls | head -n 30: } >> outputs/problem1.txt
+   17  data/projects/raw
+   18  mkdir linux_assignments data/projects/raw
+   19  mkdir -p linux_assignments/data/projects/raw linux_assignments/data/projects/processed linux_assignments/data/archive
+   20  mkdir -p data/projects/{raw,processed} data/{notes,archieve}
+   21  ls -R data >> outputs/problem1_lecture2.txt
+   22  cat > data/notes/notes1.txt
+   23  cat >> data/notes/notes1.txt >> outs/problem1_lecture2.txt
+   24  cat >> data/notes/notes1.txt >>outputs/problem1_lecture2.txt
+   25  cat -s data/notes/notes1.txt >> outputs/problem1_lecture2.txt
+   26  cat -E data/notes/notes1.txt >> outputs/problem1_lecture2.txt
+   27  cat -A data/notes/notes1.txt >> outputs/problem1_lecture2.txt
+   28  tac data/notes/notes1.txt >> outputs/problem1_lecture2.txt
+   29  cat > "-dashfile.txt"
+   30  cat -- "-dashfile.txt"
+   31  ls -l
+   32  ls -lh
+   33  ls -ld data
+   34  ls -ltr
+   35  ls -A
+   36  ls -R data
+   37  outputs/problem1_lecture2.txt
+   38  cat outputs/problem1_lecture2.txt >> outputs/problem1.txt
+   39  echo "permission demo" > data/notes/perms.txt
+   40  ls -l data/notes/perms.txt >> outputs/problem1_lecture2.txt
+   41  chmod
+   42  chmod --help
+   43  chmod 640  
+   44  chmod 640 outputs/problem1_lecture2.txt
+   45  ls -l data/notes/perms.txt >> outputs/problem1_lecture2.txt
+   46  umask
+   47  touch data/u_before.txt
+   48  umask 077
+   49  touch data/u_after.txt
+   50  ls -l
+   51  echo "link target" > data/link_target.txt
+   52  ln data/link_target.txt data/hardlink.txt
+   53  ln -s data/link_target.txt data/symlink.txt
+   54  ls -l data/link_target.txt data/hardlink.txt data/symlink.txt >> outputs/problem1_lecture2.txt
+   55  rm data/link_target.txt
+   56  ls -l data/hardlink.txt data/symlink.txt >> outputs/problem1_lecture2.txt
+   57  find data -name "*.txt"
+   58  find data -size +0
+   59  find data -type f -exec wc -w {} \;
+   60  printf "apples\noranges\nwalnuts\n" > data/a.txt
+   61  printf "apples\noranges\nwalnuts\n" > data/b.txt
+   62  diff data/a.txt data/b.txt
+   63  cmp data/a.txt data/b.txt
+   64  history > outputs/problem1_commands.txt
