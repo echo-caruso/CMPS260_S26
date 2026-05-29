@@ -135,52 +135,99 @@
 • How did the average-score command work?
     - 
 • What does head show by default? 
+    - 
 • What does tail show by default? 
+    - 
 • What does head -n 5 do? 
+    - 
 • What does tail -n 5 do? 
+    - 
 • What does tail -n +3 do? 
+    - 
 • How did the command using both head and tail print only lines 4 through 8?
+    - 
 • What is the file approach? 
+    - 
 • What is the pipe approach? 
+    - 
 • Which approach avoids creating a temporary file? 
+    - 
 • Why are pipes useful in Linux?
+    - 
 • What does tee do? 
+    - 
 • How is tee different from regular output redirection using >? 
+    - 
 • What does tee -a do?
+    - 
 • What does cut do? 
+    - 
 • What does cut -f1 do? 
+    - 
 • What does cut -f1,3 do? 
+    - 
 • What does cut -c1-10 do? 
+    - 
 • What does -d' ' mean?
+    - 
 • What does paste do? 
+    - 
 • What delimiter does paste use by default? 
+    - 
 • What does paste -d ',' do? 
+    - 
 • What does paste -s do?
+    - 
 • What does uniq do? 
+    - 
 • Why did we sort the file before using uniq? 
+    - 
 • What does uniq -c show? 
+    - 
 • What does uniq -d show? 
+    - 
 • What does uniq -u show? 
+    - 
 • Why are duplicate lines easier to remove after sorting?
+    - 
 • What does wc show by default? 
+    - 
 • What does wc -l count? 
+    - 
 • What does wc -w count? 
+    - 
 • What does wc -c count? 
+    - 
 • Why is wc useful in pipelines?
+    - 
 • What did the grep part of the pipeline do? 
+    - 
 • What did the cut part of the pipeline do? 
+    - 
 • What did the sort part of the pipeline do? 
+    - 
 • What did the uniq -c part of the pipeline do? 
+    - 
 • What did the tee part of the pipeline do? 
+    - 
 • Why is this an example of using small Linux tools together?
+    - 
 • What did both commands do? 
+    - 
 • Which command uses an extra cat process? 
+    - 
 • Why is wc -l < file usually more direct than cat file | wc -l? 
+    - 
 • Why do people still sometimes use cat file | command when building pipelines?
+    - 
 • What does the script do? 
+    - 
 • Why did we use variables named input and output? 
+    - 
 • Why did we make the script executable with chmod +x? 
+    - 
 • Why is a script useful when you want to repeat the same pipeline later?
+    - 
 
 
 
