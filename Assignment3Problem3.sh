@@ -30,3 +30,5 @@ do
 
     echo
 done
+chmod +x multiplication_table.sh
+./multiplication_table.sh 
